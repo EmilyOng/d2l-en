@@ -569,8 +569,7 @@ and the predictions from the model
 #@tab all
 def predict_ch3(net, test_iter, n=6):  #@save
     """Predict labels (defined in Chapter 3)."""
-    for X, y in test_iter:
-        break
+    X, y = next(iter(test_iter))
     trues = d2l.get_fashion_mnist_labels(y)
     preds = d2l.get_fashion_mnist_labels(d2l.argmax(net(X), axis=1))
     titles = [true +'\n' + pred for true, pred in zip(trues, preds)]
